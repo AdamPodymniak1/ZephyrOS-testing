@@ -1,20 +1,20 @@
 #include <zephyr/kernel.h>
+#include <zephyr/drivers/gpio.h>
 #include <stdio.h>
-#include <string.h>
 
-void simple_hash(const char *input, char *output) {
-    for(int i = 0; i < strlen(input); i++) {
-        sprintf(output + (i * 2), "%02x", input[i] ^ 0xFF);
-    }
-}
+static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(DT_ALIAS(led0), gpios);
 
 int main(void) {
-    const char *msg = "Hello MCX A153!";
-    char encoded[128] = {0};
+    if (!gpio_is_ready_dt(&led)) {
+        return 0;
+    }
 
-    simple_hash(msg, encoded);
-    printf("Input: %s\n", msg);
-    printf("Encoded: %s\n", encoded);
+    gpio_pin_configure_dt(&led, GPIO_OUTPUT_INACTIVE);
 
+    while (1) {
+        gpio_pin_toggle_dt(&led);
+        printf("Surprise Motherfuckers!\n");
+        k_msleep(1500); // 1500ms delay
+    }
     return 0;
 }
