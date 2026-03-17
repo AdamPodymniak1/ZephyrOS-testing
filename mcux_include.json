@@ -1,0 +1,33 @@
+{
+  "version": 7,
+  "cmakeMinimumRequired": {
+    "major": 3
+  },
+  "configurePresets": [
+    {
+      "name": "debug-env",
+      "displayName": "debug-env",
+      "hidden": true,
+      "environment": {
+        "ZEPHYR_BASE": "C:/Users/agpod/Documents/Programowanie/zephyros/zephyr_testing/zephyr",
+        "MCUX_VENV_PATH": "C:/Users/agpod/.mcuxpressotools/.venv_3_13/Scripts",
+        "PATH": "$env{MCUX_VENV_PATH}${pathListSep}$penv{PATH}",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      },
+      "cacheVariables": {}
+    },
+    {
+      "name": "release-env",
+      "displayName": "release-env",
+      "hidden": true,
+      "environment": {
+        "ZEPHYR_BASE": "C:/Users/agpod/Documents/Programowanie/zephyros/zephyr_testing/zephyr",
+        "MCUX_VENV_PATH": "C:/Users/agpod/.mcuxpressotools/.venv_3_13/Scripts",
+        "PATH": "$env{MCUX_VENV_PATH}${pathListSep}$penv{PATH}",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      },
+      "cacheVariables": {}
+    }
+  ],
+  "buildPresets": []
+}
