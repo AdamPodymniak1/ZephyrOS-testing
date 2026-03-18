@@ -13,7 +13,7 @@ int main(void) {
 
     while (1) {
         gpio_pin_toggle_dt(&led);
-        printf("Surprise Motherfuckers!\n");
+        printf("Hello from %s!\n", CONFIG_BOARD);
         k_msleep(1500); // 1500ms delay
     }
     return 0;
